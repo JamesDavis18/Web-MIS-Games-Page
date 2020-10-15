@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<title>Data Presentation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="dashboardStyle.css" />
+<style type="text/css">
+.auto-style1 {
+	margin-left: 171;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<body class="w3-deep-purple w3-content" style="max-width:1600px">
+<!-- Sidebar/menu -->
+<div id="wrapper">
+ <div id="sidebar-wrapper">
+	<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+	  <div class="w3-container">
+		<button class ="w3-bar-item w3-button" onclick="closeNav()" class="w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+		   <i class="fa fa-remove"></i>
+		</button>
+		<img src="avatar-purple.png" style="width:45%;" class="w3-round"><br><br>
+		<h3>Login</h3>
+		<form action="/login.php" method="post" target="_blank">
+		  <div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>
+		  <div class="w3-section">
+			<label>Username</label>
+			<input class="w3-input w3-border" type="text" name="Username">
+		  </div>
+		  <div class="w3-section">
+			<label>Password</label>
+			<input class="w3-input w3-border" type="password" name="Password">
+		  </div>
+		  <div class="w3-section">
+		  <dd id="autolog-element">
+			<label>&nbsp;</label>
+			<input type="checkbox" name="autologin" value="1"><label>Remember Me</label><br />
+			<label>&nbsp;</label>
+		  </dd>
+			<button class="w3-button w3-deep-purple" id="submit" name="submit" value="login" checked class="form-submit-button">Submit<br />
+		  </div>
+		</form>	
+		<h4><b>GAME CATEGORIES</b></h4>
+	  </div>
+  <div class="w3-bar-block">
+	<a href="#Action" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>All</a> 
+    <a href="#Action" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><img src="Explosion_icn.PNG" width="20px" height="20px fa-fw w3-margin-right"></i>ACTION</a> 
+    <a href="#Adventure" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-map fa-fw w3-margin-right"></i>ADVENTURE</a> 
+    <a href="#RPG" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><img src="small_sword.jpg" width="20px" height="20px" class="w3-margin-right">RPG</a>
+	<a href="#Racing" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-flag-checkered fa-fw w3-margin-right"></i>RACING</a>
+	<a href="#Shooter" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-crosshairs fa-fw w3-margin-right"></i>SHOOTER</a>
+	<a href="#Survival" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-skull fa-fw w3-margin-right"></i>SURVIVAL</a>
+	<a href="#Strategy" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-chess-rook fa-fw w3-margin-right"></i>STRATEGY</a>
+	<a href="#Puzzle &  Skill" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-puzzle-piece fa-fw w3-margin-right"></i>PUZZLE & SKILL</a>
+	<a href="#Sports" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-futbol fa-fw w3-margin-right"></i>SPORTS</a>
+	<a href="#Misc" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-question fa-fw w3-margin-right"></i>MISC</a>
+  </div>
+  <div class="w3-panel w3-large">
+    <i class="fab fa-facebook-square w3-hover-opacity"></i>
+    <i class="fab fa-instagram w3-hover-opacity"></i>
+    <i class="fab fa-twitter w3-hover-opacity"></i>
+	<i class="fab fa-discord w3-hover-opacity"></i><br>
+	<p class="w3-text-grey">Follow our social media and join our Discord server</p>
+  </div>
+</nav>
+</div>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="openNav()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+<!-- Header -->
+<header id="games_categories">
+  <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+   <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b><center>JD Games.com</center></b></h1>
+	<h3><center>A student project for Management Information Systems</center></h3>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-black">ALL</button>
+      <button class="w3-button w3-white"><img src="Explosion_icn.PNG" width="20px" height="20px" class="w3-margin-right">Action</button>
+      <button class="w3-button w3-white w3-hide-small"><span class= "fa fa-map fa-fw w3-margin-right"></span>Adventure</button>
+      <button class="w3-button w3-white w3-hide-small"><img src="small_sword.jpg" width="20px" height="20px" class="w3-margin-right">RPG</button>
+	  <button class="w3-button w3-white w3-hide-small"><span class="fa fa-flag-checkered fa-fw w3-margin-right"></span>Racing</button>
+	  <button class="w3-button w3-white w3-hide-small"><span class="fa fa-crosshairs fa-fw w3-margin-right"></span>Shooter</button>
+	  <span class="w3-margin-right"></span>
+	  <button class="w3-button w3-white w3-hide-small"><span class="fa fa-skull fa-fw w3-margin-right"></span>Survival</button>
+	  <button class="w3-button w3-white w3-hide-small"><span class="fa fa-chess-rook fa-fw w3-margin-right"></span>Strategy</button>
+	  <button class="w3-button w3-white w3-hide-small"><span class="fa fa-puzzle-piece fa-fw w3-margin-right"></span>Puzzle & Skill</button>
+	  <button class="w3-button w3-white w3-hide-small"><span class="fa fa-futbol fa-fw w3-margin-right"></span>Sports</button>
+	  <button class="w3-button w3-white w3-hide-small"><span class="fa fa-question fa-fw w3-margin-right"></span>Misc</button>
+    </div>
+  </div>
+</header>
+
+<!--Game Window -->
+<div class="w3-row-padding">
+  <h3>About: How I chose these games</h3>
+   <p>For this dashboard website I wanted a good mixture of easiluy  embeddable web games, that have a different variety of playstyles so that a large group of users is able to use this website and find something that they enjoy.
+   When choosing the games for this website dashboard, I would either choose them based of of previous experience palying said flash game, use suggestions form other users that have played a flash game that they recommend and that I feel fits into the website. 
+   Other times I tried completely new games and added them if they met my criteria. </p>
+   <ul>
+     <li>Must be fun to play</li>
+	 <li>Musn't be too additive</li>
+	 <li>Must be fully embeddable within the website</li>
+	 <li>Must work within the website and not link you to the source website</li>
+	 <li>Musnt be too difficult (The website/dashboard was designed with younger users in mind).</li>
+   </ul>
+   <p>For the dashboard to be sucessful, it must use a colour palette that is accesible for users, use an-easy-to-read font and allow users to easily chose the game(s) they want from a selection. </p>
+   <h3>Data presentation and feedback</h3>
+   <p>To get feedback for my website/dashboard, I selected a number of users that had experience with falsh game websites before, and knew what features such a website should and shouldn't have. I wanted to survey people that had experinece 
+	playing flash games before and so i could get an effective critique of not just my website in general but also the embedded games within my site. </p>
+	<h5>Question 1:</h5>
+	<p>For the first question I asked what flash game websites the users had used prior to my dashboard. Common websites included:</p>
+	<ul>
+	  <li>Cool Maths Games</li>
+	  <li>Max Games</li>
+	  <li>Nitrome</li>
+	  <li>Devily</li>
+	  <li>Newgrounds</li>
+	  <li>Adult Swim Games</li>
+	  <li>Mimiclip</li>
+	</ul>
+	<p>As well as asking my servey respondees what browser game sitees they recommend, I also looked up ratings lists such as .com and checked. Newgrounds, Nitrome and MNikniclip were all high on the list, the others were substantially lower. 
+	CoolMathgames was the suprising responce as it was the most popular games site according too my respondes. I thank that this site was the most popular due to its simple design, nice use of background colours which are very aceessible to 
+	users and a great selection of gsames. The website also features a lot of games on the homepage which means users dont have to browse through many apages just to find the game that they want.</p>
+	<p>Game websites also tend to feature a lot of adds, which put poeople off as they take up space on the webpage, look anoynning to look at and can sometimes pose a security risk. CoolMathGames does not feature too many adds, so i think thatr htis is another reason that the 
+	website was the most popular with those I surveyed. </p>
+	<h5>Question 2:</h5>
+	<p>For question 2 I asked: If my users had a good experince palying browser games?</p>
+	<img src="Datagraphs/question2.png" alt="Question 2 results" style="width:50%" class="w3-hover-opacity">
+		<figcaption>Chart to show: Results of question 2</figcaption>
+	<p>The chart shows that 85.% of the people surveyed had a positive experince playing browser games in the past, while only 14% had a bad expoerince.</p>
+	<h5>Question 3:</h5>
+	<p>For question 3 I asked my users whether they preferred simngleplayer or multiplayer games. With the information I recieved from my survey I was able to do a table showing the advantages and disadvantages of singleplayer and multiplayer games </p>
+	<table style="width:100%">
+	 <tr>
+	   <th>Singleplayer Advantages/disadvantages</th>
+	   <th>Multiplayer Advantages/Disadvantages</th>
+	 </tr>
+	 <tr>
+	   <td>Singleplayer is much more acessible</td>
+	   <td>Multiplayer games are more engaging</td>
+	 </tr>
+	 <tr>
+		<td>Singleplayer doesnt require a LAN connection</td>
+		<td>Multiplayer allows you to play either local co-op or fully online</td>
+	 </tr>
+	 <tr>
+		<td>Singleplayer is easier to play at other locations (work computers etc.)</td>
+		<td>Multiplayer allows you to play either local co-op or fully online</td>
+	 </tr>
+	 <tr>
+		<td>Singleplayer is easier to play at other locations (work computers etc.)</td>
+		<td>Multiplayer allows you to play either local co-op or fully online: Multiplayer requires a shared computer or a LAN connection</td>
+	 </tr>
+	 <tr>
+		<td>Easier to embed</td>
+		<td>Harder to embed</td>
+	 </tr>
+	</table> 
+	<p>After analysing the results I will be embedding singleplayer games into my dashboard as they will allow my teesters to try out the games even if I am having connection issues with the web database. </p>
+	<h5>Question 4:</h5>
+	<p>For question 4 I asked my users what type of games they played on flash game sites the catergoriers I asked in my question where: </p>
+	<ul>
+	  <li>Platfomer</li>
+	  <li>Shooter</li>
+	  <li>RPG</li>
+	  <li>Racing</li>
+	  <li>Puzzle/skill</li>
+	  <li>Strategy</li>
+	<ul>
+	<img src="Datagraphs/question4.png" alt="Question 4 results" style="width:50%" class="w3-hover-opacity">
+	<p>This question showed that the platfomer and puzzle/skill categories were the most popular categoriews, and that the racing category was the least popular. </p>
+	<h5>Question 5:</h5>
+	<p>For Question 5 I asked my users how long they would typically spend on these gaming sites. </p>
+	<img src="Datagraphs/question5.png" alt="Question 5 results" style="width:50%" class="w3-hover-opacity">
+	<p>The results for this question showed that people generally dont spend much time on these sites at all, with most spending only up to too hours a week. I think these results were due to the fact that all of the peoplem that i interviewed 
+	were university students that dont have enough time to go on these websites anymore. This suggests that i shoulfd focus my website on the more desired game genres and leave out those such as racing and sports games which 
+	are not played so much. </p>
+	<h5>Question 6:</h5>
+	<p>Question 6 was the first of a series of questions where I asked my users to grade each of the games I embedded on my Dashboard out of 10. </p>
+	<img src="Datagraphs/question6.png" alt="Question 6 results" style="width:50%" class="w3-hover-opacity">
+	<p>Game 1 (Run 3) proved to be fairly popular with almost 30% of the responses gave the game an 8/10 score. However it was not for everyone with almost 15% of users giving the game a 2/10.</p>
+	<h5>Question 7:</h5>
+	<img src="Datagraphs/question7.png" alt="Question 7 results" style="width:50%" class="w3-hover-opacity">
+	<p>Game 2 (Bullet Heaven) proved to be more consistently popular with my users with 43% of responses giving the game an 8/10 and 28% of responses giving the game a 9/10. </p>
+	<h5>Question 8:</h5>
+	<img src="Datagraphs/question8.png" alt="Question 8 results" style="width:50%" class="w3-hover-opacity">
+	<p>Game 3 (Effing Worms 2) proved to not be very popular with the users, woith the most common score being 3/10. However a few users did give it 10/10. 
+	Otherwise score were pretty avaerage accross the board. </p>
+	<h5>Question 9:</h5>
+	<img src="Datagraphs/question9.png" alt="Question 9 results" style="width:50%" class="w3-hover-opacity">
+	<p>Sticky Ninja Missions proved to be the most popular game on the dashboard woith just shy of 30% of users giving th game a 9/10 and a 10/10 respoectively. </p>
+	<h5>Question 10:</h5>
+	<img src="Datagraphs/question10.png" alt="Question 10 results" style="width:50%" class="w3-hover-opacity">
+	<p>Winged bullet proved to be the least popular game with almost 60% of my users giving the game a 2/10.</p>
+	<h5>Question 11:</h5>
+	<img src="Datagraphs/question11.png" alt="Question 11 results" style="width:50%" class="w3-hover-opacity">
+	<p>Legends of Kong proved to be another well scoring game with only 14% of users scoring the game less than 5/10. </p>
+	<h5>Question 12:</h5>
+	<img src="Datagraphs/question12.png" alt="Question 12 results" style="width:50%" class="w3-hover-opacity">
+	<p>Monster Legions proved to be fairly successful with user score ranging from 5/10 to 10/10. </p>
+	<h5>Question 13:</h5>
+	<img src="Datagraphs/question13.png" alt="Question 13 results" style="width:50%" class="w3-hover-opacity">
+	<p>Cyclomaniancs proved to be a average game with users with most users giving the game a 5/10 score. </p>
+	<h5>Question 14:</h5>
+	<img src="Datagraphs/question14.png" alt="Question 14 results" style="width:50%" class="w3-hover-opacity">
+	<p>Learn 2 Fly's user scores vaeeried greatly but had an overall positive reception with most users giving the game a 9/10 score. </p>
+	<h5>Question 15:</h5>
+	<img src="Datagraphs/question15.png" alt="Question 15 results" style="width:50%" class="w3-hover-opacity">
+	<p>Here I asked users to give a qualitative response regarding what they felt about the quality of the Dashboard's theme.Most users felt that the dashboard was high quality, but no one felt that 
+	it was exceptional. Feedback percentages then decline with a decrease in dashboard quality. </p>
+	<h5>Question 16:</h5>
+	<p>Here I asked the users to grade the website's acessabiulity out of 10. as this dashboard was supposed to be used effectively by younger users, it was important that the website scored well here.</p>
+	<img src="Datagraphs/question16.png" alt="Question 16 results" style="width:50%" class="w3-hover-opacity">
+	<p>Almost 60% of users gave the website a seven out of ten for acessabillity, which proves it was faily goog but shows that I clould have improved the accessabilty for the dashboard. </p>
+	<h5>Question 17:</h5>
+	<p>As a follow-on from the previous question I asked the users how user frienly they thought the site would be for younger users. </p>
+	<img src="Datagraphs/question17.png" alt="Question 17 results" style="width:50%" class="w3-hover-opacity">
+	<p>The results show that most people felt that the site would be very user friendly to uoungr users. This is important as younger teenagers would be the main demographic were I to launch the Dashboard. </p>
+	<h5>Question 18:</h5>
+	<p>Here I asked my users how good they thught the selection of games I had provided were. </p>
+	<img src="Datagraphs/question18.png" alt="Question 18 results" style="width:50%" class="w3-hover-opacity">
+	<p>Most of the users rated the selection as either excellent or average. Most users thought that i had a good range of games with representation of most of the big genres. I think that most people expected there to be
+	more games present, but I was limited by time constraints, and to make sure that the data collection looked good. </p>
+	<h5>Question 19:</h5>
+	<p>I then asked my users if they would rate my website/dashboard to other users. </p>
+	<img src="Datagraphs/question19.png" alt="Question 19 results" style="width:50%" class="w3-hover-opacity">
+	<p>Almost 1/2 of users said they would be likely to recommend my website/dashboard to other users. just over a quarter said they were indifferent to recomending the dashboard and a similar percentage were very likely to recommend the dashboard.</p>
+	<h5>Question 20:</h5>
+	<p>For the final question I asked my users a general feedback question to see what features they would add to improve the dashboard. Here is a list of the ideas received from feedback: </p>
+	<ul>
+	  <li>More links to games on the homescreen</li>
+	  <li>Add a section for educational games</li>
+	  <li>Guides to play each of the games</li>
+	  <li>Sort the games into categories</li>
+	  <li>Add user progress and rewards</li>
+	  <li>Improve the colours</lii>
+	  <li>Improve the sidebar animation</li>
+	  <li>Add a requests section</li>
+	</ul>
+	<p>I mthink that although my survey scores have provided me with lots of adequate information regarding playtime and user scores of my games, I think that users cscores could have been broader and wider if I had surveyed more users. 
+	I think that the length of my questionaire could have been an issues, with many potential users </p>
+	<p>Theese matrix scores that each game will be scored by the users will be the main source of data. th9is data source will be used to provide me with decisions to see which games had the most playtime from my user base. I will also need some  </p>
+	<h5>Discussion of findings:</h5>
+	<p>After analysing the charts of my reuslts it is clear that Legends Of Kong got the highest and most consitent scores of all the games on the site. With these socores it is clear that this game was the most well tested and had the 
+	players returning to play it the most. I think that this game was more popular with male users as that was the vast majority of users that completed the survey. </p>
+	<div class="w3-bar">
+	  <center><a href="Index.html" class="w3-bar-item w3-button-large w3-hover-PaleVioletRed"><i class="far fa-arrow-alt-circle-left" style="font-size: 50px" ></i></a>Back</center>
+	</div>
+</div>  
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-dark-grey">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </div>
+
+ <div class="w3-third">
+    <h3>POPULAR TAGS</h3>
+    <p>
+      <span class="w3-tag w3-black w3-margin-bottom">Difficult</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">.io</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Indie</span>
+      <span class="w3-tag w3-grey w3-small w3-margin-bottom">Cars</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Shooters</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">DIY</span>
+      <span class="w3-tag w3-grey w3-small w3-margin-bottom">Platformers</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Retro</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Singleplayer</span>
+      <span class="w3-tag w3-grey w3-small w3-margin-bottom">Online</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Causual</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Shopping</span>
+      <span class="w3-tag w3-grey w3-small w3-margin-bottom">Real-time</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Tower-Defense</span>
+    </p>
+ </div>
+
+  </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+</div>
+<!-- End page content -->
+</div>
+
+<script>
+// Script to toggle the sidebar to open and close
+$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+// Script to open and close sidebar
+
+function openNav() {
+    document.getElementById("left-sidebar").style.width = "350px";
+	document.getElementById("left-sidebar").style.display = "block";
+	document.getElementById("myOverlay").style.display = "block";
+}
+
+function closeNav() {
+    document.getElementById("left-sidebar").style.width = "0";
+	document.getElementById("left-sidebar").style.display = "none";
+	document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
